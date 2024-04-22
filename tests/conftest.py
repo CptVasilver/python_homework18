@@ -20,6 +20,13 @@ def browser_management():
 
     browser.quit()
 
+
+def clear_cart(count):
+    for i in range(count):
+        browser.element('[name="removefromcart"]').click()
+        browser.element(".update-cart-button").click()
+
+
 def get_cookie():
     with step("Login via API"):
         response = requests.request(
@@ -31,6 +38,5 @@ def get_cookie():
         cookie = response.cookies.get("NOPCOMMERCE.AUTH")
         allure.attach(body=response.text, name="Response", attachment_type=AttachmentType.TEXT, extension="txt")
         allure.attach(body=cookie, name="Cookie", attachment_type=AttachmentType.TEXT, extension="txt")
-
 
     return cookie
