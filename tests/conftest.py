@@ -21,7 +21,7 @@ def browser_management():
     browser.quit()
 
 def get_cookie():
-    with step("Login with API"):
+    with step("Login via API"):
         response = requests.request(
             "POST",
             url=URL + "/login",
