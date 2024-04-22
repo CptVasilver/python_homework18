@@ -34,7 +34,7 @@ def test_add_products_to_cart():
         browser.open('/')
         browser.driver.add_cookie({"name": "NOPCOMMERCE.AUTH", "value": cookie})
         browser.open('/')
-    with step("Add laptop to cart via API"):
+    with step("Add Laptop to cart via API"):
         resp_code = add_product("/catalog/31/1/1", cookie)
         assert resp_code == 200
     with step("Add smartphone to cart via API"):
